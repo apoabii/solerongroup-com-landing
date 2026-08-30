@@ -8,12 +8,90 @@
   <title>Soleron — Coming Soon</title>
   <style>
     * { box-sizing: border-box; }
-    html, body { width: 100%; min-height: 100%; margin: 0; background: #050505; }
-    body { display: grid; place-items: center; overflow: hidden; }
-    img { display: block; width: 100vw; height: 100vh; object-fit: contain; object-position: center; }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: #050505;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: relative;
+      width: min(100vw, 150vh);
+      aspect-ratio: 3 / 2;
+    }
+
+    .stage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .loading-track {
+      position: absolute;
+      left: 29.817708%;
+      top: 67.968750%;
+      width: 40.364583%;
+      height: 0.390625%;
+      min-height: 2px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #292927;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.018);
+    }
+
+    .loading-progress {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #8a6438 0%, #d7b47d 58%, #b98950 100%);
+      box-shadow: 0 0 9px rgba(202, 164, 109, 0.32);
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: soleron-loading 3.4s cubic-bezier(0.42, 0, 0.18, 1) infinite;
+      will-change: transform;
+    }
+
+    .loading-progress::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 16%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 231, 191, 0.85));
+      filter: blur(0.5px);
+    }
+
+    @keyframes soleron-loading {
+      0% { transform: scaleX(0); }
+      48% { transform: scaleX(0.58); }
+      78% { transform: scaleX(0.84); }
+      94%, 100% { transform: scaleX(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loading-progress {
+        animation: none;
+        transform: scaleX(0.62);
+      }
+    }
   </style>
 </head>
 <body>
-  <img src="landing-page.png" alt="Soleron — Where Investment Meets Intelligence. Our website is coming soon.">
+  <main class="stage" aria-label="Soleron — Our website is coming soon">
+    <img src="landing-page.png" alt="Soleron — Where Investment Meets Intelligence. Our website is coming soon.">
+    <div class="loading-track" role="progressbar" aria-label="Website launch progress">
+      <span class="loading-progress"></span>
+    </div>
+  </main>
 </body>
 </html>
