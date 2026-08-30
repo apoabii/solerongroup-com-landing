@@ -35,6 +35,10 @@
       height: 100%;
     }
 
+    .mobile-image {
+      display: none;
+    }
+
     .loading-track {
       position: absolute;
       left: 29.817708%;
@@ -78,6 +82,31 @@
       94%, 100% { transform: scaleX(1); }
     }
 
+    @media (max-width: 700px) and (orientation: portrait) {
+      .stage {
+        width: min(100vw, calc(100vh * 813 / 1934));
+        width: min(100vw, calc(100svh * 813 / 1934));
+        aspect-ratio: 813 / 1934;
+      }
+
+      .stage .desktop-image {
+        display: none;
+      }
+
+      .stage .mobile-image {
+        display: block;
+      }
+
+      .loading-track {
+        left: 16.728167%;
+        top: 53.516029%;
+        width: 66.420664%;
+        height: 0.258532%;
+        min-height: 2px;
+        background: #232222;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .loading-progress {
         animation: none;
@@ -88,7 +117,8 @@
 </head>
 <body>
   <main class="stage" aria-label="Soleron — Our website is coming soon">
-    <img src="landing-page.png" alt="Soleron — Where Investment Meets Intelligence. Our website is coming soon.">
+    <img class="desktop-image" src="landing-page.png" alt="Soleron — Where Investment Meets Intelligence. Our website is coming soon.">
+    <img class="mobile-image" src="phone-landing.png" alt="Soleron — Where Investment Meets Intelligence. Our website is coming soon.">
     <div class="loading-track" role="progressbar" aria-label="Website launch progress">
       <span class="loading-progress"></span>
     </div>
