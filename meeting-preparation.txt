@@ -1,0 +1,9 @@
+SOLERON — Strategy meeting preparation
+
+1. The bot and strategy approach you would like to review.
+2. Reporting period, leverage and drawdown information.
+3. Exchange account, trading permissions and exit terms.
+4. Clarification of reporting, contractual terms and trading costs.
+5. Minimum allocation and activation requirements.
+
+This file is for meeting preparation only. It does not submit a request or initiate a trade.
