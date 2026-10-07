@@ -9,6 +9,15 @@ URLS = [
 ]
 
 class InstagramSectionTest(unittest.TestCase):
+    def test_follow_button_contains_instagram_logo(self):
+        html = (ROOT / 'index.html').read_text()
+        start = html.index('<a class="instagram-follow"')
+        button = html[start:html.index('</a>', start)]
+        self.assertIn('class="instagram-logo"', button)
+        self.assertIn('aria-hidden="true"', button)
+        self.assertIn('<rect', button)
+        self.assertIn('<circle', button)
+
     def test_visitors_can_open_both_supplied_reels_after_company(self):
         html = (ROOT / 'index.html').read_text()
         self.assertIn('id="instagram"', html, 'Instagram section is missing')
